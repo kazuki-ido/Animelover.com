@@ -4,8 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @search = Post.ransack(params[:q])
-    @posts = @search.result
+    @posts = Post.all
   end
 
   # GET /posts/1
