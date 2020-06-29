@@ -69,3 +69,5 @@ gem 'devise'
 
 gem "carrierwave"
 
+gem 'ransack'
+
