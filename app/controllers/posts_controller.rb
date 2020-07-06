@@ -1,11 +1,14 @@
 class PostsController < ApplicationController
+  
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-
+  
   # GET /posts
-  # GET /posts.json
+  # GET /posts.json 
   def index
-    @posts = Post.page(params[:page]).per(10)
+    @search = Post.ransack(params[:q])
+    @search_posts = @search.result.page(params[:page]).per(10)
+  # binding.pry
   end
 
   # GET /posts/1
