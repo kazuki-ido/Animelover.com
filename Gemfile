@@ -75,4 +75,8 @@ gem 'kaminari'
 
 gem 'mini_magick'
 
+gem 'bootstrap', '~> 4.5.0'
+
+gem 'jquery-rails'
+
 
