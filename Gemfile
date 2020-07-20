@@ -79,4 +79,6 @@ gem 'bootstrap', '~> 4.5.0'
 
 gem 'jquery-rails'
 
+gem 'bootswatch'
+
 
