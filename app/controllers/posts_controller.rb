@@ -25,12 +25,17 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    post = Post.find(params[:id])
+    if post.user != current_user
+      redirect_to root_path
+    end
   end
 
   # POST /posts
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
 
     respond_to do |format|
       if @post.save
