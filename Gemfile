@@ -79,6 +79,6 @@ gem 'bootstrap', '~> 4.5.0'
 
 gem 'jquery-rails'
 
-gem 'bootswatch'
+gem 'bootswatch', github: "thomaspark/bootswatch"
 
 
