@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
-  before_action :authenticate_user!, only: [:mypage, :edit, :update]
+  before_action :authenticate_user!, only: [:mypage, :edit, :update, :index]
   
   def mypage
     redirect_to user_path(current_user)
   end
   
+  def index
+    @users = User.all
+  end
   
   def show
   end
