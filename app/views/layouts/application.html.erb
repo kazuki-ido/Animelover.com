@@ -19,11 +19,11 @@
     <% end %>
     
     <% if user_signed_in? %>
-      <div><%= link_to 'マイページ', user_path(id: current_user.id)%></div>
-      <div><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
+      <div><%= link_to 'マイページ', user_path(id: current_user.id), class: "btn btn-primary"%></div>
+      <div><%= link_to 'ログアウト', destroy_user_session_path, class: "btn btn-primary", method: :delete %></div>
     <% else %>
-      <div><%= link_to 'ログイン', new_user_session_path %></div>
-      <div><%= link_to 'アカウント作成', new_user_registration_path %></div>
+      <div><%= link_to 'ログイン', new_user_session_path, class: "btn btn-primary"%></div>
+      <div><%= link_to 'アカウント作成', new_user_registration_path, class: "btn btn-primary"%></div>
     <% end %>
     
     <%= yield %>
