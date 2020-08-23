@@ -81,4 +81,5 @@ gem 'jquery-rails'
 
 gem 'bootswatch', github: "thomaspark/bootswatch"
 
+gem 'devise-bootstrap-views', '~> 1.0'
 
