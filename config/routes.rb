@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   get 'home/show'
   devise_for :users
 
-  resources :users, only: [:index, :show, :edit, :update]
-  resources :posts, only: [:index, :show, :create] do
+  resources :users, only: [:index, :show, :update,:edit]
+  resources :posts do
     resources :likes, only: [:create, :destroy]
     resources :comments
-  end
+end
+
 
   resources :relationships, only: [:create, :destroy]
   get '/mypage' => 'users#mypage'
