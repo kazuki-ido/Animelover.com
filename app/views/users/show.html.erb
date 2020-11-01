@@ -17,6 +17,7 @@
   <thead class="thead-light">
     <tr>
       <th>Image</th>
+      <th>created_at</th>
       <th>Title</th>
       <th>Content</th>
       <th colspan="3"></th>
@@ -29,6 +30,7 @@
         <td>
           <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
         </td>
+        <td><%= time_ago_in_words(post.created_at) %>前</td>
         <td><%= post.title %></td>
         <td><%= post.content %></td>
         <td><%= link_to 'Show', post %></td>

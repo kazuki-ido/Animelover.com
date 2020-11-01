@@ -2,6 +2,8 @@
 
 <%= link_to @post.user.name,user_path(@post.user) %>
 
+<%= time_ago_in_words(@post.created_at) %>前
+
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
