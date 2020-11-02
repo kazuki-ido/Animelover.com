@@ -1,0 +1,31 @@
+<h1>最新の記事一覧</h1>
+
+<div class="row justify-content-md-center">
+  <div class="col">
+    <%= @first_post.title %>
+    <%= @first_post.user.name %>
+    <%= @first_post.picture_url %>
+    <%= l @first_post.created_at %>
+  </div>
+</div>
+
+<% @other_post.each_slice(2) do |left_post, right_post| %>
+  <div class="row justify-content-md-center">
+    <div class="col">
+      <%= left_post.title %>
+      <%= left_post.user.name %>
+      <%= left_post.picture_url %>
+      <%= l left_post.created_at %>
+    </div>
+    <div class="col">
+      <%= right_post.title %>
+      <%= right_post.user.name %>
+      <%= right_post.picture_url %>
+      <%= l right_post.created_at %>
+    </div>
+  </div>
+<% end %>
+
+<br>
+
+<%= paginate @posts %>
