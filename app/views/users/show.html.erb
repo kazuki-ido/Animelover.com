@@ -5,7 +5,7 @@
 <% end %>
 
 <%= image_tag @user.picture.url %>
-<img src=<%= @user.image.url %> class = "icon_image">
+<%= image_tag @user.image.url, class: 'icon_image' %>
 <p>名前 : <%= @user.name %></p>
 <p>プロフィール : <%= @user.profile %></p>
 
