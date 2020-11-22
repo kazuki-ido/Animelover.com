@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'home#index'
   get 'home/show'
+  get 'home/terms'
   devise_for :users
 
   resources :users, only: [:index, :show, :update,:edit]
