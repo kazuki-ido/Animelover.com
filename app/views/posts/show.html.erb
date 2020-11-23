@@ -69,5 +69,11 @@
    <%= image_tag @post.user.image.url, class: "icon_image" %>
    <p><%= link_to @post.user.name,user_path(@post.user) %></p>
    <p>自己紹介：　<%= @post.user.profile %></p>
+   <h2>最新の記事</h2>
+   <% @new_posts.each do |new_post| %>
+     <div>
+       <%= new_post.title %>
+     </div>
+   <% end %>
    </div>
 </div>
