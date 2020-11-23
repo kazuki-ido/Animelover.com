@@ -64,7 +64,9 @@
 <% end %>
 </div>
 
- <div class="side">
-   <p>サイドバー</p>
- </div>
+<div class="side">
+  <h2>プロフィール</h2>
+   <%= image_tag @post.user.image.url, class: "icon_image" %>
+   <p><%= link_to @post.user.name,user_path(@post.user) %></p>
+   </div>
 </div>
