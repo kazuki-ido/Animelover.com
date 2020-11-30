@@ -31,3 +31,20 @@
 <br>
 
 <%= paginate @posts %>
+
+<h1>新規ユーザー</h1>
+
+<ul class= "new_users">
+  <% @users.each do |user| %>
+    <li>
+      <%= image_tag user.image.url, class: "icon_image" %>
+      <p>
+        <%= link_to user.name, user %>
+      </p>
+    </li>
+  <% end %>
+</ul>
+
+<div class= "under_link">
+  <%= link_to "もっと見る", users_path %>
+</div>
