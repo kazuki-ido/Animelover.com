@@ -15,6 +15,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find_by(id: params[:id])
+    @new_posts = Post.where(user_id: @post.user_id).limit(10).order(id: :DESC)
     @like = Like.new
   end
 
