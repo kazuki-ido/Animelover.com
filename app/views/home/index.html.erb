@@ -2,7 +2,7 @@
 
 <div class="row justify-content-md-center">
   <div class="col">
-    <%= link_to @first_post.title, post_path(@posts) %>
+    <%= link_to @first_post.title, post_path(@first_post) %>
     <%= @first_post.user.name %>
       <% if !@first_post.picture.blank? %>
         <%= image_tag @first_post.picture_url %>
