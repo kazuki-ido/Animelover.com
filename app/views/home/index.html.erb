@@ -4,7 +4,7 @@
   <div class="col">
     <%= link_to @first_post.title, post_path(@first_post) %>
     <%= @first_post.user.name %>
-    <%= image_tag @first_post.picture_url if @first_post.picture.present? %>
+    <%= image_tag @first_post.picture_url, class: "img-thumbnail img-responsive" if @first_post.picture.present? %>
     <%= t @first_post.updated_at %>
   </div>
 </div>
@@ -14,14 +14,14 @@
     <div class="col">
       <%= link_to left_post.title, left_post %>
       <%= left_post.user.name %>
-      <%= image_tag left_post.picture_url if left_post.picture.present? %>
+      <%= image_tag left_post.picture_url, class: "img-thumbnail img-responsive" if left_post.picture.present? %>
       <%= t left_post.updated_at %>
     </div>
     <div class="col">
       <% if !right_post.nil? %>
         <%= link_to right_post.title, right_post%>
         <%= right_post.user.name %>
-        <%= image_tag right_post.picture_url if right_post.picture.present? %>
+        <%= image_tag right_post.picture_url, class: "img-thumbnail img-responsive" if right_post.picture.present? %>
         <%= t right_post.updated_at %>
       <% end %>
     </div>
