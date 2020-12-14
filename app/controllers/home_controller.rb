@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @posts = Post.ransack.result.page(params[:page]).per(10)
+    @posts = Post.ransack.result.order(updated_at: :desc).page(params[:page]).per(10)
 
     post_list = @posts.to_a
     @first_post = post_list.shift
