@@ -11,6 +11,9 @@
     <div class="row">
       <%= t @first_post.updated_at %>
     </div>
+    <div class="row">
+      <%= @first_post.content.truncate(30) %>
+    </div>
     <div class="row justify-content-around">
       <%= image_tag @first_post.picture_url, class: "img-thumbnail img-responsive" if @first_post.picture.present? %>
     </div>
