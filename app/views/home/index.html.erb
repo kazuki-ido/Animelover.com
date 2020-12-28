@@ -1,36 +1,61 @@
-<h1>最新の記事一覧</h1>
+<h5 class="font-weight-bold">最新の記事一覧</h5>
 
 <div class="row justify-content-md-center">
   <div class="col">
-    <%= @first_post.title %>
-    <%= @first_post.user.name %>
-    <%= @first_post.picture_url %>
-    <%= t @first_post.created_at %>
+    <div class="row h2">
+      <%= link_to @first_post.title, post_path(@first_post) %>
+    </div>
+    <div class="row">
+      <%= link_to @first_post.user.name, user_path(@first_post.user) %>
+    </div>
+    <div class="row small">
+      <%= t @first_post.updated_at %>
+    </div>
+    <div class="row small">
+      <%= @first_post.content.truncate(30) %>
+    </div>
+  </div>
+  <div class="col-6 mr-auto">
+    <%= image_tag @first_post.picture_url, class: "img-thumbnail img-responsive" if @first_post.picture.present? %>
   </div>
 </div>
 
 <% @other_post.each_slice(2) do |left_post, right_post| %>
   <div class="row justify-content-md-center">
     <div class="col">
-      <%= left_post.title %>
-      <%= left_post.user.name %>
-      <%= left_post.picture_url %>
-      <%= t left_post.created_at %>
+      <div class="row">
+        <%= image_tag left_post.picture_url, class: "img-thumbnail img-responsive" if left_post.picture.present? %>
+      </div>
+      <div class="row h2">
+        <%= link_to left_post.title, left_post %>
+      </div>
+      <div class="row">
+        <%= link_to left_post.user.name, user_path(left_post.user) %>
+      </div>
+      <div class="row small">
+        <%= t left_post.updated_at %>
+      </div>
     </div>
     <div class="col">
       <% if !right_post.nil? %>
-        <%= right_post.title %>
-        <%= right_post.user.name %>
-        <%= right_post.picture_url %>
-        <%= t right_post.created_at %>
+        <div class="row">
+          <%= image_tag right_post.picture_url, class: "img-thumbnail img-responsive" if right_post.picture.present? %>
+        </div>
+        <div class="row h2">
+          <%= link_to right_post.title, right_post%>
+        </div>
+        <div class="row">
+          <%= link_to right_post.user.name, user_path(right_post.user) %>
+        </div>
+        <div class="row small">
+          <%= t right_post.updated_at %>
+        </div>
       <% end %>
     </div>
   </div>
 <% end %>
 
 <br>
-
-<%= paginate @posts %>
 
 <h1>新規ユーザー</h1>
 
