@@ -2,16 +2,16 @@
 
 <div class="row justify-content-md-center">
   <div class="col">
-    <div class="row">
+    <div class="row h2">
       <%= link_to @first_post.title, post_path(@first_post) %>
     </div>
     <div class="row">
       <%= link_to @first_post.user.name, user_path(@first_post.user) %>
     </div>
-    <div class="row">
+    <div class="row small">
       <%= t @first_post.updated_at %>
     </div>
-    <div class="row">
+    <div class="row small">
       <%= @first_post.content.truncate(30) %>
     </div>
   </div>
@@ -26,13 +26,13 @@
       <div class="row">
         <%= image_tag left_post.picture_url, class: "img-thumbnail img-responsive" if left_post.picture.present? %>
       </div>
-      <div class="row">
+      <div class="row h2">
         <%= link_to left_post.title, left_post %>
       </div>
       <div class="row">
         <%= link_to left_post.user.name, user_path(left_post.user) %>
       </div>
-      <div class="row">
+      <div class="row small">
         <%= t left_post.updated_at %>
       </div>
     </div>
@@ -41,13 +41,13 @@
         <div class="row">
           <%= image_tag right_post.picture_url, class: "img-thumbnail img-responsive" if right_post.picture.present? %>
         </div>
-        <div class="row">
+        <div class="row h2">
           <%= link_to right_post.title, right_post%>
         </div>
         <div class="row">
           <%= link_to right_post.user.name, user_path(right_post.user) %>
         </div>
-        <div class="row">
+        <div class="row small">
           <%= t right_post.updated_at %>
         </div>
       <% end %>
