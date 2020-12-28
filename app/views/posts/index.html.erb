@@ -1,42 +1,25 @@
-
-
 <p id="notice"><%= notice %></p>
 
 <h1>記事一覧</h1>
 
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th>Image</th>
-      <th>created_at</th>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  
-
-  <tbody>
-    <% @search_posts.each do |post| %>
-      <tr>
-        <td>
-          <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
-        </td>
-        <td><%= time_ago_in_words(post.created_at) %>前</td>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-<br>
+<% @search_posts.each do |post| %>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="row lead">
+          <%= link_to post.title, post %>
+        </div>
+        <div class="row small">
+          <%= post.content.truncate(30) %>
+        </div>
+        <div class="row samll">
+          <%= t post.created_at %>
+          <%= link_to post.user.name, user_path(post.user) %>
+        </div>
+      </div>
+      <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
+    </div>
+  </div>
+<% end %>
 
 <%= paginate @search_posts %>
-
-
-
