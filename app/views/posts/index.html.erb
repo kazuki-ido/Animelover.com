@@ -6,13 +6,13 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <div class="row">
+        <div class="row lead">
           <%= link_to post.title, post %>
         </div>
-        <div class="row">
+        <div class="row small">
           <%= post.content.truncate(30) %>
         </div>
-        <div class="row">
+        <div class="row samll">
           <%= t post.created_at %>
           <%= link_to post.user.name, post %>
         </div>
