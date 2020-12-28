@@ -14,7 +14,7 @@
         </div>
         <div class="row samll">
           <%= t post.created_at %>
-          <%= link_to post.user.name, post %>
+          <%= link_to post.user.name, user_path(post.user) %>
         </div>
       </div>
       <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
