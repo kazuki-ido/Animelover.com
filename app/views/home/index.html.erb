@@ -6,7 +6,7 @@
       <%= link_to @first_post.title, post_path(@first_post) %>
     </div>
     <div class="row">
-      <%= @first_post.user.name %>
+      <%= link_to @first_post.user.name, user_path(@first_post.user) %>
     </div>
     <div class="row">
       <%= t @first_post.updated_at %>
@@ -30,7 +30,7 @@
         <%= link_to left_post.title, left_post %>
       </div>
       <div class="row">
-        <%= left_post.user.name %>
+        <%= link_to left_post.user.name, user_path(left_post.user) %>
       </div>
       <div class="row">
         <%= t left_post.updated_at %>
@@ -45,7 +45,7 @@
           <%= link_to right_post.title, right_post%>
         </div>
         <div class="row">
-          <%= right_post.user.name %>
+          <%= link_to right_post.user.name, user_path(right_post.user) %>
         </div>
         <div class="row">
           <%= t right_post.updated_at %>
