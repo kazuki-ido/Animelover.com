@@ -13,7 +13,7 @@
           <%= post.content.truncate(30) %>
         </div>
         <div class="row">
-          <%= time_ago_in_words(post.created_at) %>前
+          <%= t post.created_at %>
           <%= link_to post.user.name, post %>
         </div>
       </div>
