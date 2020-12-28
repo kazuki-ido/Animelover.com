@@ -1,39 +1,23 @@
-
-
 <p id="notice"><%= notice %></p>
 
 <h1>記事一覧</h1>
 
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th>Image</th>
-      <th>created_at</th>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  
-
-  <tbody>
-    <% @search_posts.each do |post| %>
-      <tr>
-        <td>
-          <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
-        </td>
-        <td><%= time_ago_in_words(post.created_at) %>前</td>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-<br>
+<% @search_posts.each do |post| %>
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <%= link_to post.title, post %>
+      </div>
+      <div class="row">
+        <%= post.content.truncate(30) %>
+      </div>
+      <div class="row">
+        <%= time_ago_in_words(post.created_at) %>前
+        <%= link_to post.user.name, post %>
+      </div>
+    </div>
+    <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
+  </div>
+<% end %>
 
 <%= paginate @search_posts %>
-
-
-
