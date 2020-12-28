@@ -3,20 +3,22 @@
 <h1>記事一覧</h1>
 
 <% @search_posts.each do |post| %>
-  <div class="row">
-    <div class="col">
-      <div class="row">
-        <%= link_to post.title, post %>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <%= link_to post.title, post %>
+        </div>
+        <div class="row">
+          <%= post.content.truncate(30) %>
+        </div>
+        <div class="row">
+          <%= time_ago_in_words(post.created_at) %>前
+          <%= link_to post.user.name, post %>
+        </div>
       </div>
-      <div class="row">
-        <%= post.content.truncate(30) %>
-      </div>
-      <div class="row">
-        <%= time_ago_in_words(post.created_at) %>前
-        <%= link_to post.user.name, post %>
-      </div>
+      <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
     </div>
-    <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
   </div>
 <% end %>
 
