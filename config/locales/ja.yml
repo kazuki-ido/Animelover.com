@@ -141,7 +141,6 @@ ja:
         one: エラーが発生したため %{resource} は保存されませんでした。
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
 
-ja:
   date:
     formats:
       default: "%Y/%m/%d"
@@ -166,8 +165,8 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %Z"
     am: "午前"
     pm: "午後"
-    
-ja:
+    ago: "前"
+
   helpers:
     label:
       user:
@@ -177,7 +176,6 @@ ja:
         remember_me: パスワードを記憶
         current_password: 現在のパスワード
         
-ja:
   datetime:
     distance_in_words:
       half_a_minute: "30秒前後"
@@ -215,7 +213,6 @@ ja:
         one:   "1年以上"
         other: "%{count}年以上"
 
-ja:
   views:
     pagination:
       first: "&laquo; 最初"
