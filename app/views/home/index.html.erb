@@ -9,7 +9,7 @@
       <%= link_to @first_post.user.name, user_path(@first_post.user) %>
     </div>
     <div class="row small">
-      <%= t @first_post.updated_at %>
+      <%= time_ago_in_locale(@first_post.updated_at) %>
     </div>
     <div class="row small">
       <%= @first_post.content.truncate(30) %>
@@ -33,7 +33,7 @@
         <%= link_to left_post.user.name, user_path(left_post.user) %>
       </div>
       <div class="row small">
-        <%= t left_post.updated_at %>
+        <%= time_ago_in_locale(left_post.updated_at) %>
       </div>
     </div>
     <div class="col">
@@ -48,7 +48,7 @@
           <%= link_to right_post.user.name, user_path(right_post.user) %>
         </div>
         <div class="row small">
-          <%= t right_post.updated_at %>
+          <%= time_ago_in_locale(right_post.updated_at) %>
         </div>
       <% end %>
     </div>
