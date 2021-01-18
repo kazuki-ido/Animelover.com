@@ -21,12 +21,12 @@
     <%= form.text_area :content, class: "form-control" %>
   </div>
   
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :picture, "画像"%>
-    <%= form.file_field :picture %>
+    <%= form.file_field :picture, class: "form-control-file" %>
   </div>
 
   <div class="actions">
-    <%= form.submit "投稿する" %>
+    <%= form.submit "投稿する", class: "btn btn-primary btn-block" %>
   </div>
 <% end %>
