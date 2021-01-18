@@ -14,37 +14,24 @@
 <%= flash[:success] %>
 <%= flash[:alert] %>
 
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th>Image</th>
-      <th>created_at</th>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-<tbody>
-  <% @user.posts.each do |post| %>
-     <tr>
-        <td>
-          <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
-        </td>
-        <td><%= time_ago_in_words(post.created_at) %>前</td>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
-        <% if post.user_id == current_user.id %>
-          <td><%= link_to 'Edit', edit_post_path(post) %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<% @user.posts.each do |post| %>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <%= link_to post.title, post %>
+        </div>
+        <div class="row">
+          <%= post.content.truncate(30) %>
+        </div>
+        <div class="row">
+          <%= time_ago_in_locale(post.updated_at) %>
+        </div>
+      </div>
+      <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
+    </div>
+  </div>
+<% end %>
 
 <% if user_signed_in? && @user == current_user %>
   <%= link_to 'New Post', new_post_path %>
