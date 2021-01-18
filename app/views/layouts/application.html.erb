@@ -10,9 +10,11 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <div class="container-fluid animelover-wrapper">
-      <%= yield %>
-    </div>
+    <main class="main">
+      <div class="container-fluid animelover-wrapper">
+        <%= yield %>
+      </div>
+    </main>
     <%= render 'layouts/footer' %>
   </body>
 </html>

@@ -21,6 +21,11 @@
 @import "terms";
 @import "posts";
 @import "home" ;
+
+.main {
+  padding: 40px;
+}
+
 .pagination {
   justify-content: center;
 }
