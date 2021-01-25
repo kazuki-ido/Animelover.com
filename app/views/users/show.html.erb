@@ -44,23 +44,23 @@
 <%= flash[:success] %>
 <%= flash[:alert] %>
 
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="row">
-          <%= link_to post.title, post %>
-        </div>
-        <div class="row">
-          <%= post.content.truncate(30) %>
-        </div>
-        <div class="row">
-          <%= time_ago_in_locale(post.updated_at) %>
     <% @posts.each do |post| %>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <%= link_to post.title, post %>
+          </div>
+          <div class="row">
+            <%= post.content.truncate(30) %>
+          </div>
+          <div class="row">
+            <%= time_ago_in_locale(post.updated_at) %>
+          </div>
         </div>
+        <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
       </div>
-      <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
 <%= paginate @posts %>
