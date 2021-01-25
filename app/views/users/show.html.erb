@@ -44,7 +44,6 @@
 <%= flash[:success] %>
 <%= flash[:alert] %>
 
-<% @user.posts.each do |post| %>
   <div class="container">
     <div class="row">
       <div class="col">
@@ -56,6 +55,7 @@
         </div>
         <div class="row">
           <%= time_ago_in_locale(post.updated_at) %>
+    <% @posts.each do |post| %>
         </div>
       </div>
       <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
