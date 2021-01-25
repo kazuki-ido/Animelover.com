@@ -6,10 +6,40 @@
 
 <%= image_tag @user.picture.url %>
 <%= image_tag @user.image.url, class: 'icon_image' %>
-<p>名前 : <%= @user.name %></p>
-<p>プロフィール : <%= @user.profile %></p>
 
-<%= render "relationships/follow_button" , user: @user %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <p>名前 : <%= @user.name %></p>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>プロフィール : <%= @user.profile %></p>
+        </div>
+      </div>
+    </div>
+    <div class="side col">
+      <div class="row">
+        <%= render "relationships/follow_button" , user: @user %>
+      </div>
+      <div class="row">
+        <% if user_signed_in? && @user == current_user %>
+          <div class="col">
+            <%= link_to "プロフィール編集", edit_user_path(current_user) %>
+          </div>
+          <div class="col">
+            <%= link_to 'ログイン情報変更', edit_user_registration_path(current_user) %>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <%= link_to '新規投稿', new_post_path %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
 
 <%= flash[:success] %>
 <%= flash[:alert] %>
@@ -33,9 +63,4 @@
   </div>
 <% end %>
 
-<% if user_signed_in? && @user == current_user %>
-  <%= link_to 'New Post', new_post_path %>
-  <%= link_to "プロフィール編集", edit_user_path(current_user) %>
-  <%= link_to 'ログイン情報変更', edit_user_registration_path(current_user) %>
-<% end %>
 <%= paginate @posts %>
