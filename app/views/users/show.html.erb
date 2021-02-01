@@ -4,7 +4,9 @@
   <h1>ユーザーページ</h1>
 <% end %>
 
-<%= image_tag @user.picture.url %>
+<div class="jumbotron jumbotron-fluid" style="background: url(<%= asset_path @user.picture.url %>);">
+  <div class="container"></div>
+</div>
 <%= image_tag @user.image.url, class: 'icon_image' %>
 
 <div class="container-fluid">
