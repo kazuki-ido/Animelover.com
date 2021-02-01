@@ -33,36 +33,35 @@
           <div class="col">
             <%= link_to 'ログイン情報変更', edit_user_registration_path(current_user) %>
           </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <%= link_to '新規投稿', new_post_path %>
-            </div>
-          </div>
-          <% end %>
-        </div>
+        <% end %>
       </div>
-
-<%= flash[:success] %>
-<%= flash[:alert] %>
-
-    <% @posts.each do |post| %>
       <div class="row">
         <div class="col">
-          <div class="row">
-            <%= link_to post.title, post %>
-          </div>
-          <div class="row">
-            <%= post.content.truncate(30) %>
-          </div>
-          <div class="row">
-            <%= time_ago_in_locale(post.updated_at) %>
-          </div>
+          <%= link_to '新規投稿', new_post_path %>
         </div>
-        <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
       </div>
-    <% end %>
+    </div>
   </div>
+
+  <%= flash[:success] %>
+  <%= flash[:alert] %>
+
+  <% @posts.each do |post| %>
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <%= link_to post.title, post %>
+        </div>
+        <div class="row">
+          <%= post.content.truncate(30) %>
+        </div>
+        <div class="row">
+          <%= time_ago_in_locale(post.updated_at) %>
+        </div>
+      </div>
+      <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
+    </div>
+  <% end %>
 </div>
 
 <%= paginate @posts %>
