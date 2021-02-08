@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'views/users', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <% if user_signed_in? && @user == current_user %>
   <h1>マイページ</h1>
 <% else %>
