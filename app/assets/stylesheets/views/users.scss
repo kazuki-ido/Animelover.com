@@ -17,12 +17,14 @@
   margin-bottom: 65px;
 
   .banner {
-    width: 100%;
     height: 256px;
     margin: 0 -56px;
-    padding: 0 21px;
+    padding: 0 56px;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto 100%;
+    background-position: center top;
+    background-attachment: inherit;
+    background-color: paleturquoise;
     position: relative;
   }
 
