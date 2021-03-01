@@ -27,13 +27,8 @@
   }
 
   .icon {
-    width: 150px;
-    height: 150px;
-    border-radius: 100px;
-    object-fit: cover;
+    @extend .icon_image_list;
+
     position: absolute;
-    left: 30px;
-    bottom: -45px;
-    border: 5px solid #fff;
   }
 }
