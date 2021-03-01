@@ -1,53 +1,71 @@
+<%= stylesheet_link_tag 'views/users', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <% if user_signed_in? && @user == current_user %>
   <h1>マイページ</h1>
 <% else %>
   <h1>ユーザーページ</h1>
 <% end %>
 
-<%= image_tag @user.picture.url %>
-<%= image_tag @user.image.url, class: 'icon_image' %>
-<p>名前 : <%= @user.name %></p>
-<p>プロフィール : <%= @user.profile %></p>
+<div class="user_image">
+  <%= image_tag @user.picture.url, class: "user-header_banner" %>
+  <%= image_tag @user.image.url, class: 'icon_image' %>
+</div>
 
-<%= render "relationships/follow_button" , user: @user %>
-
-<%= flash[:success] %>
-<%= flash[:alert] %>
-
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th>Image</th>
-      <th>created_at</th>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-<tbody>
-  <% @user.posts.each do |post| %>
-     <tr>
-        <td>
-          <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
-        </td>
-        <td><%= time_ago_in_words(post.created_at) %>前</td>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
-        <% if post.user_id == current_user.id %>
-          <td><%= link_to 'Edit', edit_post_path(post) %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col">
+        <h2><%= @user.name %></h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p><%= @user.profile %></p>
+        </div>
+      </div>
+    </div>
+    <div class="side col">
+      <div class="row">
+        <%= render "relationships/follow_button" , user: @user %>
+      </div>
+      <div class="row">
+        <% if user_signed_in? && @user == current_user %>
+          <div class="col">
+            <%= link_to "プロフィール編集", edit_user_path(current_user) %>
+          </div>
+          <div class="col">
+            <%= link_to 'ログイン情報変更', edit_user_registration_path(current_user) %>
+          </div>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= link_to '新規投稿', new_post_path %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<br>
+  <%= flash[:success] %>
+  <%= flash[:alert] %>
 
-<% if user_signed_in? && @user == current_user %>
-  <%= link_to 'New Post', new_post_path %>
-  <%= link_to "プロフィール編集", edit_user_path(current_user) %>
-  <%= link_to 'ログイン情報変更', edit_user_registration_path(current_user) %>
-<% end %>
+  <% @posts.each do |post| %>
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <%= link_to post.title, post %>
+        </div>
+        <div class="row">
+          <%= post.content.truncate(30) %>
+        </div>
+        <div class="row">
+          <%= time_ago_in_locale(post.updated_at) %>
+        </div>
+      </div>
+      <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @posts %>
