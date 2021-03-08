@@ -7,8 +7,8 @@
 <% end %>
 
 <div class="user_image">
-  <%= image_tag @user.picture.url, class: "user-header_banner" %>
-  <%= image_tag @user.image.url, class: 'icon_image' %>
+  <div class="banner" style="background-image: url('<%= @user.picture.url %>');"></div>
+  <%= image_tag @user.image.url, class: 'icon' %>
 </div>
 
 <div class="container-fluid">
