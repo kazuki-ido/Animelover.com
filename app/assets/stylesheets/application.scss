@@ -13,8 +13,11 @@
  
  */
 @import "minty/variables";
+
+$input-placeholder-color: #CCC;
 @import "bootstrap";
 @import "minty/bootswatch";
+
 @import "anime";
 @import "sticky-footer";
 @import "terms";
