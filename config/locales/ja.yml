@@ -18,7 +18,7 @@ ja:
         password: パスワード
         password_confirmation: パスワード（確認用）
         remember_created_at: ログイン記憶時刻
-        remember_me: ログインを記憶する
+        remember_me: 次回から自動でログイン
         reset_password_sent_at: パスワードリセット送信時刻
         reset_password_token: パスワードリセット用トークン
         sign_in_count: ログイン回数
@@ -119,7 +119,7 @@ ja:
         back: 戻る
         didn_t_receive_confirmation_instructions: アカウント確認のメールを受け取っていませんか?
         didn_t_receive_unlock_instructions: アカウントの凍結解除方法のメールを受け取っていませんか?
-        forgot_your_password: パスワードを忘れましたか?
+        forgot_your_password: パスワードの再設定
         sign_in: ログイン
         sign_in_with_provider: "%{provider}でログイン"
         sign_up: アカウント登録

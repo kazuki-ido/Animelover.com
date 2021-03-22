@@ -83,3 +83,4 @@ gem 'bootswatch', github: "thomaspark/bootswatch"
 
 gem 'devise-bootstrap-views', '~> 1.0'
 
+gem 'font-awesome-sass', '~> 5.15.1'
