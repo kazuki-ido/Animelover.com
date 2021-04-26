@@ -27,7 +27,9 @@
     </div>
     <div class="side col">
       <div class="row">
-        <%= render "relationships/follow_button" , user: @user %>
+        <% if user_signed_in? %>
+          <%= render "relationships/follow_button" , user: @user %>
+        <% end %>
       </div>
       <div class="row">
         <% if user_signed_in? && @user == current_user %>
