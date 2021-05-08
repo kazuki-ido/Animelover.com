@@ -16,7 +16,9 @@
     </div>
   </div>
   <div class="col-6 mr-auto">
-    <%= image_tag @first_post.picture_url, class: "img-thumbnail img-responsive" if @first_post.picture.present? %>
+    <% if @first_post.picture.present? %>
+      <%= image_tag @first_post.picture_url, class: "img-thumbnail img-responsive", onerror: 'this.onerror=null;this.src="/images/user/image/s0041_30_0.jpg"' %>
+    <% end %>
   </div>
 </div>
 
@@ -24,7 +26,9 @@
   <div class="row justify-content-md-center">
     <div class="col">
       <div class="row">
-        <%= image_tag left_post.picture_url, class: "img-thumbnail img-responsive" if left_post.picture.present? %>
+        <% if left_post.picture.present? %>
+          <%= image_tag left_post.picture_url, class: "img-thumbnail img-responsive", onerror: 'this.onerror=null;this.src="/images/user/image/s0041_30_0.jpg"' %>
+        <% end %>
       </div>
       <div class="row h2">
         <%= link_to left_post.title, left_post %>
@@ -39,7 +43,9 @@
     <div class="col">
       <% if !right_post.nil? %>
         <div class="row">
-          <%= image_tag right_post.picture_url, class: "img-thumbnail img-responsive" if right_post.picture.present? %>
+          <% if right_post.picture.present? %>
+            <%= image_tag right_post.picture_url, class: "img-thumbnail img-responsive", onerror: 'this.onerror=null;this.src="/images/user/image/s0041_30_0.jpg"' %>
+          <% end %>
         </div>
         <div class="row h2">
           <%= link_to right_post.title, right_post%>
@@ -62,7 +68,7 @@
 <ul class= "new_users">
   <% @users.each do |user| %>
     <li>
-      <%= image_tag user.image.url, class: "icon_image" %>
+      <%= image_tag user.image.url, class: "icon_image", onerror: 'this.onerror=null;this.src="/images/user/image/s0041_30_0.jpg"' %>
       <p>
         <%= link_to user.name, user %>
       </p>

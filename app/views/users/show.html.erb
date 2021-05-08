@@ -8,7 +8,7 @@
 
 <div class="user_image">
   <div class="banner" style="background-image: url('<%= @user.picture.url %>');"></div>
-  <%= image_tag @user.image.url, class: 'icon' %>
+  <%= image_tag @user.image.url, class: 'icon', onerror: 'this.onerror=null;this.src="/images/user/image/s0041_30_0.jpg"' %>
 </div>
 
 <div class="container-fluid">
@@ -65,7 +65,7 @@
           <%= time_ago_in_locale(post.updated_at) %>
         </div>
       </div>
-      <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
+      <%= image_tag post.picture_url(:thumb), onerror: 'this.onerror=null;this.src="/images/user/image/s0041_30_0.jpg"' if post.picture.present? %>
     </div>
   <% end %>
 </div>
