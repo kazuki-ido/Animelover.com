@@ -17,7 +17,7 @@
           <%= link_to post.user.name, user_path(post.user) %>
         </div>
       </div>
-      <%= image_tag post.picture_url(:thumb) if post.picture.present? %>
+      <%= image_tag post.picture_url(:thumb), onerror: 'this.onerror=null;this.src="/images/user/image/s0041_30_0.jpg"' if post.picture.present? %>
     </div>
   </div>
 <% end %>
