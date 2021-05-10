@@ -1,25 +1,27 @@
 <h5 class="font-weight-bold">最新の記事一覧</h5>
 
 <div class="row justify-content-md-center">
-  <div class="col">
-    <div class="row h2">
-      <%= link_to @first_post.title, post_path(@first_post) %>
+  <% if @first_post.present? %>
+    <div class="col">
+      <div class="row h2">
+        <%= link_to @first_post.title, post_path(@first_post) %>
+      </div>
+      <div class="row">
+        <%= link_to @first_post.user.name, user_path(@first_post.user) %>
+      </div>
+      <div class="row small">
+        <%= time_ago_in_locale(@first_post.updated_at) %>
+      </div>
+      <div class="row small">
+        <%= @first_post.content.truncate(30) %>
+      </div>
     </div>
-    <div class="row">
-      <%= link_to @first_post.user.name, user_path(@first_post.user) %>
+    <div class="col-6 mr-auto">
+      <% if @first_post.picture.present? %>
+        <%= image_tag @first_post.picture_url, class: "img-thumbnail img-responsive", onerror: 'this.onerror=null;this.src="/images/user/image/s0041_30_0.jpg"' %>
+      <% end %>
     </div>
-    <div class="row small">
-      <%= time_ago_in_locale(@first_post.updated_at) %>
-    </div>
-    <div class="row small">
-      <%= @first_post.content.truncate(30) %>
-    </div>
-  </div>
-  <div class="col-6 mr-auto">
-    <% if @first_post.picture.present? %>
-      <%= image_tag @first_post.picture_url, class: "img-thumbnail img-responsive", onerror: 'this.onerror=null;this.src="/images/user/image/s0041_30_0.jpg"' %>
-    <% end %>
-  </div>
+  <% end %>
 </div>
 
 <% @other_post.each_slice(2) do |left_post, right_post| %>
