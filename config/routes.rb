@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get 'home/show'
   get 'home/terms'
+  get "users/home/terms" => "home#terms"
+  get "posts/home/terms" => "home#terms"
   devise_for :users
 
   resources :users, only: [:index, :show, :update,:edit]
