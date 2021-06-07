@@ -70,7 +70,7 @@
 <ul class= "new_users">
   <% @users.each do |user| %>
     <li>
-      <%= image_tag user.image.url, class: "icon_image", onerror: 'this.onerror=null;this.src="/images/user/image/s0041_30_0.jpg"' %>
+      <%= image_tag user.image.url, class: "top_user_icon rounded-circle", onerror: 'this.onerror=null;this.src="/images/user/image/s0041_30_0.jpg"' %>
       <p>
         <%= link_to user.name, user %>
       </p>
