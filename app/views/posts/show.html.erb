@@ -66,7 +66,7 @@
 
 <div class="side">
   <h2>プロフィール</h2>
-    <%= image_tag @post.user.image.url, class: "icon_image", onerror: 'this.onerror=null;this.src="/images/user/image/s0041_30_0.jpg"' %>
+    <%= image_tag @post.user.image.url, class: "article_detail_user_icon rounded-circle", onerror: 'this.onerror=null;this.src="/images/user/image/s0041_30_0.jpg"' %>
     <p><%= link_to @post.user.name,user_path(@post.user) %></p>
     <p>自己紹介：　<%= @post.user.profile %></p>
     <% if user_signed_in? %>
